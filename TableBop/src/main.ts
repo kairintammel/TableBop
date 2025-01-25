@@ -1,23 +1,35 @@
-import { invoke } from "@tauri-apps/api/core";
+let catCount = 0;
 
-let greetInputEl: HTMLInputElement | null;
-let greetMsgEl: HTMLElement | null;
+function AddCategory() {
+  // Get the main container element by ID
+  const body = document.getElementsByTagName("body").item(0);
 
-
-async function greet() {
-  if (greetMsgEl && greetInputEl) {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    greetMsgEl.textContent = await invoke("greet", {
-      name: greetInputEl.value,
-    });
+  // Clear the container
+  if (body && catCount == 0) {
+    catCount += 1;
+    body.innerHTML = '';
+    const newContent = document.createElement('div');
+    newContent.className = 'apps';
+    newContent.innerHTML = `
+           <button class="newApp"> Kool </button>
+           <button class="newApp" onclick="AddCategory()"> New </button>
+        `;
+    body.appendChild(newContent);
   }
-}
+  else {
+    catCount += 1;
+    const apps = document.getElementsByClassName('apps').item(0);
 
-window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form")?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    greet();
-  });
-});
+    if (apps) {
+      apps.innerHTML += `
+           <button class="newApp"> Kool </button>
+           <button class="newApp"> New </button>
+        `;
+      }
+    }
+
+  }
+
+
+// Attach AddCategory function to the window object
+window.AddCategory = AddCategory;

@@ -9,8 +9,10 @@
     "beforeBuildCommand": "npm run build",
     "frontendDist": "../dist"
   },
+
   "app": {
     "withGlobalTauri": true,
+
     "windows": [
       {
         "title": "tablebop",
