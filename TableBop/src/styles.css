@@ -1,18 +1,13 @@
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
-}
-
-.logo.typescript:hover {
-  filter: drop-shadow(0 0 2em #2d79c7);
-}
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 
-  color: #0f0f0f;
-  background-color: #f6f6f6;
+  --olive: #778A35;
+  --dark-olive: #31352E;
+  --sage: #D1E2C4;
+  --lightest: #EBEBE8;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,13 +16,19 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  background-color: var(--dark-olive);
+}
+
 .container {
-  margin: 0;
-  padding-top: 10vh;
   display: flex;
-  flex-direction: column;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  height: 97vh;
+  width: auto;
 }
 
 .logo {
@@ -89,6 +90,21 @@ button:active {
 input,
 button {
   outline: none;
+}
+
+#bigBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  background-color: dark-olive;
+  color: olive;
+  font-size: 8rem;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 #greet-input {
