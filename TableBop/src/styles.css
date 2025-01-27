@@ -57,3 +57,21 @@ h1 {
   color: var(--lightest);
   border: 1px solid var(--olive);
 }
+
+input {
+  padding: 5px;
+  padding-left: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: var(--sage);
+  color: var(--dark-olive);
+  height: 40px;
+  width: 200px;
+  font-size: 16px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+input::placeholder {
+  color: var(--olive);
+}
