@@ -1,4 +1,4 @@
-//import { writeFile, BaseDirectory } from "@tauri-apps/plugin-fs";
+import { writeFile, BaseDirectory } from "@tauri-apps/plugin-fs";
 
 //const containerId = "nameless-container";	
 //const placeholder = "Enter a name for the new window...";
@@ -15,9 +15,13 @@ const htmlContent = `
 </body>
 </html>
 `;
+
 const addBtn = document.getElementById("addBtn");
+
 if (addBtn) {
+  console.log("Button found.");
   addBtn.addEventListener("click", () => {
+    console.log("Button clicked.");
     bopRequest('main', 'Whats Boppin?');
   });
 }
@@ -49,7 +53,7 @@ function bopRequest(containerId: string, placeholder: string): void {
   // Wrap the newWindow function in an event handler
   textField.oninput = (event: Event) => {
     const input = event.target as HTMLInputElement;
-   // createNewWindow(input.value + ".html");
+    console.log(`Input value: ${input.value}`);
   };
 
   const icon = document.createElement("a");
@@ -70,7 +74,7 @@ function bopRequest(containerId: string, placeholder: string): void {
   console.log("Text field added successfully.");
 }
 
-/*async function createNewWindow(fileName: string): Promise<void> {
+async function createNewWindow(fileName: string): Promise<void> {
   try {
     // Write to the file in the AppData directory
     let encoder = new TextEncoder();
@@ -81,4 +85,4 @@ function bopRequest(containerId: string, placeholder: string): void {
   } catch (err) {
     console.error("Failed to create the file:", err);
   }
-}*/
+}
